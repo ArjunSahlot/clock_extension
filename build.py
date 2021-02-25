@@ -21,7 +21,6 @@ print("Unzipping")
 with zipfile.ZipFile(tmp, 'r') as zip:
     zip.extractall(dir)
 
-print("Cleaning up")
 os.rename(os.path.join(dir, file), os.path.join(dir, file.split("-")[0]))
 os.remove(os.path.join(tmp))
 
