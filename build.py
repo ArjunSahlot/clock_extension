@@ -8,14 +8,9 @@ Tk().withdraw()
 print("Choose installation location.")
 dir = askdirectory()
 tmp = os.path.join(dir, "tmp")
-file = "clock_extension-"
+file = "clock_extension-main"
 print("Installing...")
-try:
-    urllib.request.urlretrieve("https://github.com/ArjunSahlot/clock_extension/archive/main.zip", tmp)
-    file += "main"
-except urllib.error.HTTPError:
-    urllib.request.urlretrieve("https://github.com/ArjunSahlot/clock_extension/archive/master.zip", tmp)
-    file += "master"
+urllib.request.urlretrieve("https://github.com/ArjunSahlot/clock_extension/archive/main.zip", tmp)
 
 print("Unzipping")
 with zipfile.ZipFile(tmp, 'r') as zip:
