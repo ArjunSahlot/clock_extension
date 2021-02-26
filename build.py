@@ -9,22 +9,21 @@ Tk().withdraw()
 print("Choose installation location.")
 dir = askdirectory()
 tmp = os.path.join(dir, "tmp")
-file = "clock_extension-"
+file = "clock_extension-main"
 print("Installing...")
-try:
-    urllib.request.urlretrieve("https://github.com/ArjunSahlot/clock_extension/archive/main.zip", tmp)
-    file += "main"
-except urllib.error.HTTPError:
-    urllib.request.urlretrieve("https://github.com/ArjunSahlot/clock_extension/archive/master.zip", tmp)
-    file += "master"
+urllib.request.urlretrieve("https://github.com/ArjunSahlot/clock_extension/archive/main.zip", tmp)
 
 print("Unzipping")
 with zipfile.ZipFile(tmp, 'r') as zip:
     zip.extractall(dir)
 
+<<<<<<< HEAD
 print("Cleaning up")
 final = os.path.join(dir, file.split("-")[0]
 os.rename(os.path.join(dir, file), final))
+=======
+os.rename(os.path.join(dir, file), os.path.join(dir, file.split("-")[0]))
+>>>>>>> df548bb3cff6c79c521eecf010146838104f22af
 os.remove(os.path.join(tmp))
 
 with open(os.path.join(final, "requirements.txt"), "r") as f:
