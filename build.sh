@@ -19,17 +19,4 @@ curl -LO $download_link \
 && cp -r $temporary_dir/clock_extension-main $1/clock_extension \
 && rm -rf $temporary_dir \
 && echo -e "\033[0;32mSuccessfully downloaded to $1/clock_extension\033[0m" \
-&& echo "Checking if pip is installed"
-if [ $(sudo dpkg-query -l | grep python3-pip | wc -l) -eq 0 ];
-then
-  echo -e "\033[0;31mpip is not installed\033[0m" \
-  && echo "Installing pip..." \
-  && sudo apt install -y python3-pip \
-  && echo -e "\033[0;32mpip was successfully installed\033[0m"
-else
-  echo -e "\033[0;32mpip is already installed\033[0m"
-fi
-echo "Installing requirements" \
-&& cd $1/clock_extension \
-&& pip3 install -r requirements.txt \
 && echo -e "\033[0;32mDone!\033[0m"
