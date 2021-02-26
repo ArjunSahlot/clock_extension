@@ -1,5 +1,4 @@
 import os
-import sys
 import zipfile
 import urllib.request
 from tkinter import Tk
